@@ -8,7 +8,7 @@ object TestFor {
     /**
      * 前后闭合
      */
-    for (i <- 1 to 5) {
+    for (i <- 0 to 5) {
       println("宋宋，告别海狗人参丸吧" + i)
     }
 
@@ -16,7 +16,7 @@ object TestFor {
      * 前闭合后开
      */
 
-    for (i <- 1 until 5 + 1) {
+    for (i <- 0 until 5 + 1) {
       println("宋宋，告别海狗人参丸吧" + i)
     }
 

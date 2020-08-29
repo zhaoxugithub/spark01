@@ -24,5 +24,4 @@ object Spark02_Partition_men {
     //关闭context连接
     sc.stop()
   }
-
 }
