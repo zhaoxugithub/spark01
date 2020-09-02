@@ -2,7 +2,7 @@ package com.zx.spark.demo03
 
 import org.apache.spark.{SparkConf, SparkContext}
 
-class Spark03_Transformation_Sample {
+object Spark03_Transformation_Sample {
 
   def main(args: Array[String]): Unit = {
 

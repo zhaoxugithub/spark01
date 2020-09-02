@@ -33,7 +33,7 @@ object Spark03_Transformation_RDD01 {
     mapRDD.collect().foreach(println)
 
     val value: RDD[String] = sc.makeRDD(List("coffee panda", "happy panda", "happiest panda party"), 2)
-    value.map(str => str.split(" ")).collect().foreach())
+//    value.map(str => str.split(" ")).collect().foreach())
 
 
     /**
