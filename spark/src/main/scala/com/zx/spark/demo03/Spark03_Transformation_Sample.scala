@@ -30,6 +30,4 @@ object Spark03_Transformation_Sample {
 
 
   }
-
-
 }

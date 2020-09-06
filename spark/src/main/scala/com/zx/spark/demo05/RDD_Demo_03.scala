@@ -33,7 +33,7 @@ object RDD_Demo_03 {
 
 
     println("-------------------------------------")
-    data.mapPartitionsWithIndex(
+      data.mapPartitionsWithIndex(
       (pindex, iter) => {
         var lb = new ListBuffer[String]
         println(s"-------$pindex--connected-------")

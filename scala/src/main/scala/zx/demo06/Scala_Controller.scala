@@ -27,7 +27,7 @@ object Scala_Controller {
 
     var num = 0
     for (i <- 1 to 9; j <- 1 to 9; if (j <= i)) {
-      if (j <= i) {
+      if (j < i) {
         print(s"${i} * ${j} =${i * j}\t")
       }
       if (i == j) println()

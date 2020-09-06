@@ -42,6 +42,8 @@ object RDD_Demo_02 {
     val res01: RDD[(String, Int)] = group.flatMap(e => {
       e._2.map(x => (e._1, x))
     }.iterator)
+
+
     res01.foreach(println)
     println("------------------")
     group.flatMapValues(e => e.iterator).foreach(println) //这里的e是K-V 中的V
@@ -68,6 +70,7 @@ object RDD_Demo_02 {
     count.foreach(println)
 
     println("--------------avg-----------------------")
+
     val avg: RDD[(String, Int)] = sum.join(count).mapValues(e => e._1 / e._2)
     avg.foreach(println)
 

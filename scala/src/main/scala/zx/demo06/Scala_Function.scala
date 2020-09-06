@@ -11,8 +11,9 @@ object Scala_Function {
     println("---------1.basic -------------")
 
     //返回值，参数，函数体
-    def fun01(): Unit = {
+    def fun01(): Int = {
       println("hello world")
+      0
     }
 
     fun01()
@@ -26,7 +27,7 @@ object Scala_Function {
      * 上面两行代码 等于
      * println("sss" + fun01)
      */
-    println("sss" + fun01)
+    println("sss" + fun01())
 
 
     //有return 则必须制定函数返回值,给定返回值但是没有return 会把函数体中最后一行当成函数返回
