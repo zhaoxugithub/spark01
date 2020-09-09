@@ -13,7 +13,8 @@ object Spark01_CreateRDD_file {
     val sc = new SparkContext(conf)
 
     //读取本地文件创建RDD
-    val fileRDD: RDD[String] = sc.textFile("/Users/serendipity/IdeaProjects/spark_01/spark/src/main/data/wordcount/input/word.txt")
+    val fileRDD: RDD[String] = sc.textFile("/Users/serendipity/IdeaProjects/spark_01/spark/src/main/data/wordcount/input/word.txt", 3)
+
     val strings: Array[String] = fileRDD.take(0)
     println(strings.toString)
 
@@ -28,11 +29,11 @@ object Spark01_CreateRDD_file {
         java python
         scala python)
      */
-//    val wholeRDD: RDD[(String, String)] = sc.wholeTextFiles("/Users/serendipity/IdeaProjects/spark_01/spark/src/main/data/wordcount/input/word.txt")
-//    println(wholeRDD.take(0).toString)
+    //    val wholeRDD: RDD[(String, String)] = sc.wholeTextFiles("/Users/serendipity/IdeaProjects/spark_01/spark/src/main/data/wordcount/input/word.txt")
+    //    println(wholeRDD.take(0).toString)
 
     fileRDD.collect().foreach(println)
-//    wholeRDD.collect().foreach(println)
+    //    wholeRDD.collect().foreach(println)
 
     //读取hdfsRDD
     //    val hdfsRDD: RDD[String] = sc.textFile("hdfs://CentOS201:9000/input")
