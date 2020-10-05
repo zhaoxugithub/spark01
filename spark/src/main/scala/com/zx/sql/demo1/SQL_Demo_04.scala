@@ -29,7 +29,7 @@ object SQL_Demo_04 {
   }
 }
 
-case class User1(name: String, age: Long, sex: String)
+case class User1(var age: Long)
 
 case class AgeBuffer(var sum: Long, var count: Long)
 

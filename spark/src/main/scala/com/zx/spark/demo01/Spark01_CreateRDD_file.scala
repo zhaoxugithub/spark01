@@ -13,11 +13,10 @@ object Spark01_CreateRDD_file {
     val sc = new SparkContext(conf)
 
     //读取本地文件创建RDD
-    val fileRDD: RDD[String] = sc.textFile("/Users/serendipity/IdeaProjects/spark_01/spark/src/main/data/wordcount/input/word.txt", 3)
+    val fileRDD: RDD[String] = sc.textFile("spark/src/main/data/wordcount/input/word.txt", 3)
 
     val strings: Array[String] = fileRDD.take(0)
     println(strings.toString)
-
     /*
     (file:/Users/serendipity/IdeaProjects/spark_01/spark/src/main/data/wordcount/input/word.txt,zhaoxu zhaoxu
         li hahah
