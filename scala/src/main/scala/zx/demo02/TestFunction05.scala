@@ -30,6 +30,10 @@ object TestFunction05 {
       s + " jinlian"
     }
 
+    def fff(s:Int)={
+
+    }
+
     println(f1("Hello"))
 
     //（2）如果函数体只有一行代码，可以省略花括号

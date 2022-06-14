@@ -24,10 +24,10 @@ object TestWordCount03 {
     // Word, List((Word,4))
     val wordToTupleMap: Map[String, List[(String, Int)]] = wordToCountList.groupBy(t => t._1)
 
-    val stringToInts: Map[String, List[Int]] = wordToTupleMap.mapValues {
-      datas => datas.map(t => t._2)
-    }
-    stringToInts
+//    val stringToInts: Map[String, List[Int]] = wordToTupleMap.mapValues {
+//      datas => datas.map(t => t._2)
+//    }
+//    stringToInts
 
     /*
     val wordToCountMap: Map[String, List[Int]] = wordToTupleMap.map {

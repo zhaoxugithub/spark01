@@ -16,6 +16,25 @@ object TestFunction04 {
       for (elem <- arr) yield op(elem)
     }
 
+    def operation2(ar: Array[Int]): Unit = {
+      val ss = for (ele <- 0 until ar.length) yield {
+        ar.apply(ele) + 1
+      }
+      println("dsdasddsadasd" + ss)
+    }
+
+    def operation3(arr: Array[Int]): Unit = {
+      val sss = for (ele <- arr) yield {
+        ele + 1
+      }
+      println(arr.mkString(","))
+      println(sss.mkString(","))
+    }
+
+    operation3(Array(1, 2, 3, 4))
+
+    operation2(Array(1, 2, 3, 4))
+
     // （2）定义逻辑函数
     def op(ele: Int): Int = {
       ele + 1

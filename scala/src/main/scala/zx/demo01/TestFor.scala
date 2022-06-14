@@ -87,6 +87,7 @@ object TestFor {
     var res2 = for (i <- 1 to 10) yield {
       i * 2
     }
+    println(res2)
 
     /**
      * 倒序打印

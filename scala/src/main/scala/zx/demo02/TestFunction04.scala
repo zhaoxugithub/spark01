@@ -19,7 +19,7 @@ object TestFunction04 {
       println(name + "," + s)
     }
 
-    test2("jinlian", "dalang")
+    test2("jinlian", "dalang","sdsdas")
 
     // (3)参数默认值
     def test3(name: String, age: Int = 30): Unit = {
