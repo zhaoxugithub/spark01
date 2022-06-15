@@ -7,6 +7,8 @@ object Spark02_Partition_default {
 
   def main(args: Array[String]): Unit = {
 
+//    System.load("D:\\soft\\hadoop\\bin\\hadoop.dll")
+
     //创建Spark配置文件对象
     val conf: SparkConf = new SparkConf().setAppName("SparkTest").setMaster("local[*]")
     //创建SparkContext
@@ -24,7 +26,7 @@ object Spark02_Partition_default {
     println(partitions.size)
 
     //输出到
-    listRdd.saveAsTextFile("/Users/serendipity/IdeaProjects/spark_01/spark/src/main/data/wordcount/output")
+    listRdd.saveAsTextFile("D:\\document\\idea\\spark_01\\spark\\src\\main\\data\\wordcount\\output")
 
     //关闭context连接
     sc.stop()

@@ -5,9 +5,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object Spark01_WordCount {
   def main(args: Array[String]): Unit = {
-
     System.setProperty("hadoop.home.dir", "D:\\soft\\hadoop")
-
     //1.准备Spark环境的位置
     val sparkConf = new SparkConf().setMaster("local[*]").setAppName("wordCount")
     //2.建立和spark的连接
