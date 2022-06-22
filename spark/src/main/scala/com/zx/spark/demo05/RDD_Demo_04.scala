@@ -54,6 +54,12 @@ object RDD_Demo_04 {
 
     /**
      * 这种情况分区的结果和之前没有分区一样
+     *
+     *
+     * union
+     *
+     *
+     *
      */
     val repartition: RDD[(Int, Int)] = data1.coalesce(4, false)
 

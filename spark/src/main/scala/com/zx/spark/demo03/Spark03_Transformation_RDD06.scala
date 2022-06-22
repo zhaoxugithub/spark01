@@ -19,11 +19,11 @@ object Spark03_Transformation_RDD06 {
     // TODO 2. 创建Spark环境连接对象
     val sc = new SparkContext(sparkConf)
 
-    // TODO 3. 构建RDD
+    //TODO 3. 构建RDD
     val numRDD: RDD[Int] = sc.makeRDD(List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 
     // 随机抽取数据
-    val sampleRDD: RDD[Int] = numRDD.sample(true, 2, 1)
+    val sampleRDD: RDD[Int] = numRDD.sample(true, 1, 1)
     //1,1,1,1,2,2,2,2,3,4,4,5,5,5,5,6,6,6,6,6,7,8,8,9,9,10,10,10
     println(sampleRDD.collect().mkString(","))
 

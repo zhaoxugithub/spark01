@@ -3,7 +3,6 @@ package com.zx.streaming
 import java.io.{BufferedReader, InputStreamReader}
 import java.net.{ConnectException, Socket}
 import java.nio.charset.StandardCharsets
-
 import org.apache.spark.SparkConf
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.streaming.receiver.Receiver

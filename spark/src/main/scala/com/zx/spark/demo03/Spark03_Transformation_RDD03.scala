@@ -17,15 +17,17 @@ object Spark03_Transformation_RDD03 {
     //创建SparkContext
     val sc = new SparkContext(conf)
 
+    var rdd1 = sc.parallelize(Array(10, 20, 30, 40, 50, 60), 2)
 
-    var rdd1 = sc.parallelize(Array(10, 20, 30, 40, 50, 60), 4)
-    val arrRDD: RDD[Array[Int]] = rdd1.glom()
-    arrRDD.collect().foreach(println)
-
-
+    //def glom(): RDD[Array[T]] = withScope
+    val array: Array[Array[Int]] = rdd1.glom().collect()
+    array.foreach(x => {
+      val iterator: Iterator[Int] = x.iterator
+      while (iterator.hasNext) {
+        println(x.hashCode()+":"+iterator.next())
+      }
+    })
     //关闭context连接
     sc.stop()
-
-
   }
 }

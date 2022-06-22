@@ -18,6 +18,8 @@ object Spark03_Transformation_RDD02 {
 
     // 将集合中的每一个数据进行结构的转换，并形成平方和立方的组合
     // 转换算子 - flatMap
+    //  TraversableOnce："集合的模板特征，该特征只能被遍历一次或一次或多次。"
+    // def flatMap[U: ClassTag](f: T => TraversableOnce[U]): RDD[U] = withScope
     val flatMapRDD: RDD[Int] = numRDD.flatMap(num => {
       List(num * num, num * num * num)
     })

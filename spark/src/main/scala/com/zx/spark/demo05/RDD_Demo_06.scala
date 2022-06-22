@@ -6,7 +6,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 /**
  * UV是指通过互联网访问、浏览这个网页的自然人。访问您网站的一台电脑客户端为一个访客。00:00-24:00内相同的客户端只被计算一次。
  * PV是指访问量
- **/
+ * */
 //面向数据集操作：
 //*，带函数的非聚合：  map，flatmap
 //1，单元素：union，cartesion  没有函数计算
@@ -61,10 +61,8 @@ object RDD_Demo_06 {
 
     resultRDD1.foreach(println)
 
-    while (true) {}
+    Thread.sleep(Long.MaxValue)
     //关闭context连接
     sc.stop()
-
-
   }
 }

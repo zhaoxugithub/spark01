@@ -27,6 +27,9 @@ object Spark03_Transformation_RDD01 {
 
     // 将RDD通过算子进行转换，变成新的RDD
     // 转换算子 - map
+
+    //f: T => U ：表示的是一个函数签名
+    //def map[U: ClassTag](f: T => U): RDD[U] = withScope
     val mapRDD: RDD[Int] = numRDD0.map(num => {
       num * 2
     })
@@ -46,6 +49,9 @@ object Spark03_Transformation_RDD01 {
     // 转换算子 - mapPartitions
     // mapPartitions以分区单位进行逻辑运算，但是运算过程中，数据不会被释放掉，所以容易产生内存溢出
     // 在这个场合下，一般就采用map算子，保证程序执行通过。
+    // def mapPartitions[U: ClassTag](
+    //      f: Iterator[T] => Iterator[U],
+    //      preservesPartitioning: Boolean = false): RDD[U] = withScope
     val mapPartitionsRDD: RDD[Int] = numRDD.mapPartitions(list => {
       println(list)
       list.foreach(println)
@@ -60,6 +66,8 @@ object Spark03_Transformation_RDD01 {
     val numRDD2: RDD[Int] = sc.makeRDD(List(1, 3, 2, 4), 2)
     // 循环打印数据，并同时输出数据的分区号
     // 转换算子 - mapPartitionsWithIndex
+    //   f: (Int, Iterator[T]) => Iterator[U],
+    //      preservesPartitioning: Boolean = false
     val mapPartitionsWithIndexRDD: RDD[(Int, Int)] = numRDD2.mapPartitionsWithIndex(
 
       (index, datas) => {
@@ -68,16 +76,13 @@ object Spark03_Transformation_RDD01 {
         )
       }
     )
-
     //(0,(0,1)) (0,(0,3))  (1(1,2)) (1(1,4))
-
     val collect: Array[(Int, Int)] = mapPartitionsWithIndexRDD.collect
     collect.foreach(println)
 
-
+    //p:def filter(p: A => Boolean): Repr
     val tuples: Array[(Int, Int)] = collect.filter(t => t._1 == 1)
     println(tuples.map(_._2).sum)
-
     //关闭context连接
     sc.stop()
   }

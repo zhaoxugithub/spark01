@@ -13,12 +13,7 @@ object Spark03_Transformation_coalesce {
     //创建SparkContext
     val sc = new SparkContext(conf)
     //处理需求
-
-
     //关闭context连接
     sc.stop()
-
-
-
   }
 }
