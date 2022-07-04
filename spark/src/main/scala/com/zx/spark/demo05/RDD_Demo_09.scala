@@ -25,6 +25,7 @@ object RDD_Demo_09 {
       println(sum)
     })
 
+    println(sum)
     /**
      * (0,1)
      * (0,2)

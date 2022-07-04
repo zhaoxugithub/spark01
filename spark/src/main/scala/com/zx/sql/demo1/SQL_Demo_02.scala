@@ -17,12 +17,10 @@ object SQL_Demo_02 {
     val spark: SparkSession = SparkSession.builder().config(conf).getOrCreate()
 
     val dataFrame: DataFrame = spark.read.json("spark/src/main/data/jsondata/person.json")
-
+    //注册UDF
     spark.udf.register("addSayHi",(name:String)=>{"nihao:"+name})
-
+    //创建临时表
     dataFrame.createOrReplaceTempView("person")
-
-
     spark.sql("select addSayHi(name),age from person").show()
 
     spark.stop()

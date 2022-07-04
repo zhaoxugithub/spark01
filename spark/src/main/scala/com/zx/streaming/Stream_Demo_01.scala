@@ -13,7 +13,7 @@ object Stream_Demo_01 {
     val context = new StreamingContext(conf, Seconds(3))
 
 
-    val receiverDS: ReceiverInputDStream[String] = context.socketTextStream("localhost", 9999)
+    val receiverDS: ReceiverInputDStream[String] = context.socketTextStream("192.168.1.101", 9999)
 
 
     val flatMapStream: DStream[String] = receiverDS.flatMap(_.split(" "))

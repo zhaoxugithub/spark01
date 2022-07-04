@@ -25,7 +25,7 @@ object Spark02_DStreamCreate_RDDQueue {
     ssc.start()
     // 循环创建并向RDD队列中放入RDD
     for (i <- 1 to 5) {
-      rddQueue += ssc.sparkContext.makeRDD(1 to 5, 10)
+      rddQueue += ssc.sparkContext.makeRDD(1 to 300, 10)
       Thread.sleep(2000)
     }
     ssc.awaitTermination()

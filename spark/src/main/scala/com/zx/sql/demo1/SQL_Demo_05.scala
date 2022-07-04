@@ -29,6 +29,7 @@ object SQL_Demo_05 {
     /**
      * scala> df.write.
      * csv  jdbc   json  orc   parquet textFile… …
+     * spark.read.format("…")[.option("…")].load("…")
      */
     val df: DataFrame = spark.read.format("json").load("spark/src/main/data/jsondata/person.json")
     //df.write.json("spark/src/main/data/jsondata/output")
@@ -41,6 +42,15 @@ object SQL_Demo_05 {
      * save ("…")：在"csv"、"orc"、"parquet"和"textFile"格式下需要传入保存数据的路径。
      * option("…")：在"jdbc"格式下需要传入JDBC相应参数，url、user、password和dbtable
      */
+
+    spark.read.format("jdbc")
+      .option("url", "jdbc:mysql://1.15.149.196:33306/mall")
+      .option("driver", "com.mysql.jdbc.Driver")
+      .option("user", "root")
+      .option("password", "rootroot")
+      .option("dbtable", "mall_category")
+      .load().show
+
     df.write.mode("append").json("spark/src/main/data/jsondata/output")
 
 
