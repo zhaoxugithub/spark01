@@ -9,6 +9,7 @@ object Spark01_IsSort_Demo03 {
     val conf: SparkConf = new SparkConf().setAppName("test").setMaster("local[*]")
     val context = new SparkContext(conf)
     test04(context)
+    while (true) {}
     context.stop()
   }
 
@@ -24,7 +25,7 @@ object Spark01_IsSort_Demo03 {
     value1.map(x => {
       println("=========" + x)
       x
-    }).collect()
+    }).collect().foreach(println)
   }
 
   def test2(context: SparkContext): Unit = {
@@ -58,5 +59,6 @@ object Spark01_IsSort_Demo03 {
     })
     value1.collect().foreach(println)
   }
+
 
 }

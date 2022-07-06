@@ -75,12 +75,13 @@ object Rdd_aggregator {
       mapSideCombine: Boolean = true,
       serializer: Serializer = null): RDD[(K, C)] = self.withScope {
      */
-    sourceRDD.combineByKey((x: Int) => (x, 1), ((x: (Int, Int), y: Int) => (x._1 + y, x._2 + 1)), (x: (Int, Int), y: (Int, Int)) => (x._1 + y._1, x._2 + y._2))
-    sourceRDD.combineByKey(x => (x, 1), (v1: (Int, Int), v2) => (v1._1 + v2, v1._2 + 1), (x: (Int, Int), y: (Int, Int)) => ((x._1 + y._1, x._2 + y._2))
 
-
+    val value1: RDD[(String, (Int, Int))] = sourceRDD.combineByKey(
+      (v: Int) => (v, 1),
+      (c: (Int, Int), v: Int) => (c._1 + v, c._2 + 1),
+      (c1: (Int, Int), c2: (Int, Int)) => (c1._1 + c2._1, c1._2 + c2._2)
     )
-
+    val avgRDD2 = value1.mapValues(e => e._1 / e._2)
 
     sumRdd.foreach(println)
     println("-----------------")
@@ -91,6 +92,8 @@ object Rdd_aggregator {
     countRDD1.foreach(println)
     println("------------------")
     avgRDD.foreach(println)
+    println("------------------")
+    avgRDD2.foreach(println)
 
   }
 }

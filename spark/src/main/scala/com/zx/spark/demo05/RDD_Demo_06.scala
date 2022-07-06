@@ -30,15 +30,10 @@ object RDD_Demo_06 {
 
     println("-----------PV------------")
     val pair: RDD[(String, Int)] = file.map(line => (line.split("\t")(5), 1))
-
     val redRDD: RDD[(String, Int)] = pair.reduceByKey(_ + _)
-
     val swapRDD: RDD[(Int, String)] = redRDD.map(_.swap)
-
     val sortRDD: RDD[(Int, String)] = swapRDD.sortByKey(false)
-
     val resultRDD: RDD[(String, Int)] = sortRDD.map(_.swap)
-
     resultRDD.foreach(println)
 
 

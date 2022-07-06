@@ -10,8 +10,8 @@ object RDD_Demo_01_Combine {
     //创建SparkContext
     val sc = new SparkContext(conf)
 
-    val list1: RDD[Int] = sc.parallelize(List(1, 3, 5, 7, 9, 11),2)
-    val list2: RDD[Int] = sc.parallelize(List(2, 4, 6, 8, 10),2)
+    val list1: RDD[Int] = sc.parallelize(List(1, 3, 5, 7, 9, 11), 1)
+    val list2: RDD[Int] = sc.parallelize(List(2, 4, 6, 8, 10), 1)
     println(list1.partitions.length)
     println(list2.partitions.length)
     println("--------------------------")
@@ -24,7 +24,9 @@ object RDD_Demo_01_Combine {
     println(value.partitions.length)
 
 
-    value.foreach(println)
+    value.mapPartitionsWithIndex((index, iter) => {
+      iter.map(x => (index, x))
+    }).foreach(println)
 
     sc.stop()
   }
