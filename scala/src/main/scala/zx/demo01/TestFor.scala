@@ -88,14 +88,11 @@ object TestFor {
       i * 2
     }
     println(res2)
-
     /**
      * 倒序打印
      */
-
     for (i <- 1 to 10 reverse) {
       println(i)
     }
-
   }
 }

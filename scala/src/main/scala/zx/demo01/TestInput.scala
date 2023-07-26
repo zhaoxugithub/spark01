@@ -27,5 +27,4 @@ object TestInput {
     println("age=" + age)
     println("sal=" + sal)
   }
-
 }

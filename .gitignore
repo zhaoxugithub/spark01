@@ -1,6 +1,6 @@
 /scala/scala.iml
 /spark/spark.iml
-/.idea/
+/.idea/*
 /spark/target/
 /scala/target/
 /scala/out/
